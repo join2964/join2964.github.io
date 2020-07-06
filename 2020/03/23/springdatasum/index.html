@@ -1,0 +1,2891 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="springdata学习记录, java,redis,spring,mybatis,springmvc,springdatajpa,mysql,springboot">
+    <meta name="description" content="心之所向，无所不至。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>springdata学习记录 | Knowing good</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Knowing good" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Knowing good</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Knowing good</div>
+        <div class="logo-desc">
+            
+            心之所向，无所不至。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">springdata学习记录</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">学习</span>
+                            </a>
+                        
+                            <a href="/tags/spring/">
+                                <span class="chip bg-color">spring</span>
+                            </a>
+                        
+                            <a href="/tags/springdata/">
+                                <span class="chip bg-color">springdata</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-03-23
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="springdata简介"><a href="#springdata简介" class="headerlink" title="springdata简介"></a>springdata简介</h1><pre><code>是Spring 的一个子项目。用于简化数据库访问，支持NoSQL 和 关系数据存储。其主要目标是使数据库的访问变得方便快捷。</code></pre><a id="more"></a>
+
+<h1 id="相关概述"><a href="#相关概述" class="headerlink" title="相关概述"></a>相关概述</h1><h2 id="ORM概述"><a href="#ORM概述" class="headerlink" title="ORM概述"></a>ORM概述</h2><p>  ORM（Object-Relational Mapping） 表示对象关系映射。在面向对象的软件开发中，通过ORM，就可以把对象映射到关系型数据库中。只要有一套程序能够做到建立对象与数据库的关联，操作对象就可以直接操作数据库数据，就可以说这套程序实现了ORM对象关系映射<br>  简单的说：实现一个应用程序时（不使用O/R Mapping），可能会写特别多数据访问层的代码，从数据库保存数据、修改数据、删除数据，而这些代码都是重复的。而使用ORM则会大大减少重复性代码。ORM就是建立实体类和数据库表之间的关系，从而达到操作实体类就相当于操作数据库表的目的。</p>
+<h2 id="hibernate概述"><a href="#hibernate概述" class="headerlink" title="hibernate概述"></a>hibernate概述</h2><p>   Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。</p>
+<h2 id="JPA概述"><a href="#JPA概述" class="headerlink" title="JPA概述"></a>JPA概述</h2><p>  JPA的全称是Java Persistence API， 即Java 持久化API，是SUN公司推出的一套基于ORM的规范，内部是由一系列的接口和抽象类构成。<br>  JPA通过JDK 5.0注解描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。<br>  JPA和Hibernate的关系就像JDBC和JDBC驱动的关系，JPA是规范，Hibernate除了作为ORM框架之外，它也是一种JPA实现。JPA怎么取代Hibernate呢？JDBC规范可以驱动底层数据库吗？答案是否定的，也就是说，如果使用JPA规范进行数据库操作，底层需要hibernate作为其实现类完成数据持久化工作。</p>
+<h2 id="JPA案例"><a href="#JPA案例" class="headerlink" title="JPA案例"></a>JPA案例</h2><p>1、Maven工程pom.xml中导入坐标</p>
+<pre><code>&lt;properties&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+        &lt;project.hibernate.version&gt;5.0.7.Final&lt;/project.hibernate.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;!-- junit --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.12&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- hibernate对jpa的支持包 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+            &lt;artifactId&gt;hibernate-entitymanager&lt;/artifactId&gt;
+            &lt;version&gt;${project.hibernate.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- c3p0 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+            &lt;artifactId&gt;hibernate-c3p0&lt;/artifactId&gt;
+            &lt;version&gt;${project.hibernate.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- log日志 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+            &lt;version&gt;1.2.17&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- jdbc驱动jar包 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;5.1.6&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;</code></pre><p>2、配置JPA的核心配置文件<br>** 在java工程的src路径下创建一个名为META-INF的文件夹，在此文件夹下创建一个名为persistence.xml的配置文件 **</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence  
+    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0"&gt;
+    &lt;!--配置持久化单元 
+        name：持久化单元名称 
+        transaction-type：事务类型
+                          RESOURCE_LOCAL：本地事务管理 
+                          JTA：分布式事务管理 --&gt;
+    &lt;persistence-unit name="myJpa" transaction-type="RESOURCE_LOCAL"&gt;
+        &lt;!--配置JPA规范的服务提供商 --&gt;
+        &lt;provider&gt;org.hibernate.jpa.HibernatePersistenceProvider&lt;/provider&gt;
+        &lt;properties&gt;
+            &lt;!-- 数据库驱动 --&gt;
+            &lt;property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" /&gt;
+            &lt;!-- 数据库地址 --&gt;
+            &lt;property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa" /&gt;
+            &lt;!-- 数据库用户名 --&gt;
+            &lt;property name="javax.persistence.jdbc.user" value="root" /&gt;
+            &lt;!-- 数据库密码 --&gt;
+            &lt;property name="javax.persistence.jdbc.password" value="rootroot" /&gt;
+
+            &lt;!--jpa提供者的可选配置：我们的JPA规范的提供者为hibernate，所以jpa的核心配置中兼容hibernate的配 --&gt;
+            &lt;property name="hibernate.show_sql" value="true" /&gt;
+            &lt;property name="hibernate.format_sql" value="true" /&gt;
+            &lt;property name="hibernate.hbm2ddl.auto" value="create" /&gt;
+        &lt;/properties&gt;
+    &lt;/persistence-unit&gt;
+&lt;/persistence&gt;</code></pre><p>3、创建数据库表</p>
+<pre><code>CREATE TABLE per_student (
+      per_id bigint(32) NOT NULL AUTO_INCREMENT COMMENT '学生编号(主键)',
+      per_name varchar(32) NOT NULL COMMENT '学生姓名',
+      per_age int DEFAULT NULL COMMENT '学生年龄',
+      per_sex varchar(2) DEFAULT NULL COMMENT '学生性别',
+      per_major varchar(32) DEFAULT NULL COMMENT '学生专业',
+      per_phone varchar(64) DEFAULT NULL COMMENT '学生联系电话',
+      PRIMARY KEY (`per_id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;</code></pre><p>4、创建实体类</p>
+<pre><code>import java.io.Serializable;
+import javax.persistence.*
+/**
+*        * 所有的注解都是使用JPA的规范提供的注解，
+ *        * 所以在导入注解包的时候，一定要导入javax.persistence下的
+ */
+@Entity //声明实体类
+@Table(name="per_student") //建立实体类和表的映射关系
+public class Student implements Serializable{
+
+    @Id//声明当前私有属性为主键
+    @GeneratedValue(strategy=GenerationType.IDENTITY) //配置主键的生成策略
+    @Column(name="per_id") //指定和表中per_id字段的映射关系
+    private Long perId;
+
+    @Column(name="per_name") //指定和表中per_name字段的映射关系
+    private String perName;
+
+    @Column(name="per_age")//指定和表中per_age字段的映射关系
+    private String perAge;
+
+    @Column(name="per_sex")//指定和表中per_sex字段的映射关系
+    private String perSex;
+
+    @Column(name="per_major")//指定和表中per_major字段的映射关系
+    private String perMajor;
+
+    @Column(name="per_phone")//指定和表中per_phone字段的映射关系
+    private String perPhone;
+
+    public Long getPerId() {
+        return perId;
+    }
+
+    public void setPerId(Long perId) {
+        this.perId = perId;
+    }
+
+    public String getPerName() {
+        return perName;
+    }
+
+    public void setPerName(String perName) {
+        this.perName = perName;
+    }
+
+    public int getPerAge() {
+        return perAge;
+    }
+
+    public void setPerAge(int perAge) {
+        this.perAge = perAge;
+    }
+
+    public String getPerSex() {
+        return perSex;
+    }
+
+    public void setPerSex(String perSex) {
+        this.perSex = perSex;
+    }
+
+    public String getPerMajor() {
+        return perMajor;
+    }
+
+    public void setPerMajor(String perMajor) {
+        this.perMajor = perMajor;
+    }
+
+    public String getPerPhone() {
+        return perPhone;
+    }
+
+    public void setPerPhone(String perPhone) {
+        this.perPhone = perPhone;
+    }
+｝</code></pre><p>补充</p>
+<blockquote>
+<p>@Entity<br>    作用：指定当前类是实体类。<br>@Table<br>    作用：指定实体类和表之间的对应关系。<br>    属性：<br>        name：指定数据库表的名称<br>@Id<br>    作用：指定当前字段是主键。<br>@GeneratedValue<br>    作用：指定主键的生成方式。。<br>    属性：<br>        strategy ：指定主键生成策略。<br>@Column<br>    作用：指定实体类属性和数据库表之间的对应关系<br>    属性：<br>        name：指定数据库表的列名称。<br>        unique：是否唯一<br>        nullable：是否可以为空<br>        inserttable：是否可以插入<br>        updateable：是否可以更新<br>        columnDefinition: 定义建表时创建此列的DDL<br>      secondaryTable: 从表名。如果此列不建在主表上（默认建在主表），该属性定义该列所在从表的名字搭建开发环境</p>
+</blockquote>
+<p>5、测试-添加数据</p>
+<pre><code>@Test
+    public void test() {
+        /**
+         * 创建实体管理类工厂，借助Persistence的静态方法获取
+         *         其中传递的参数为持久化单元名称，需要jpa配置文件中指定
+         */
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("myJpa");
+        //创建实体管理类
+        EntityManager em = factory.createEntityManager();
+        //获取事务对象
+        EntityTransaction tx = em.getTransaction();
+        //开启事务
+        tx.begin();
+        Student c = new Student();
+            c.setPerName("张三");
+            c.setPerAge(18);
+            c.setPerSex("男");
+            c.setPerMajor("java开发攻城狮");
+            c.setPerPhone("17856520896");
+        //保存操作
+        em.persist(c);
+        //提交事务
+        tx.commit();
+        //释放资源
+        em.close();
+        factory.close();
+    }</code></pre><h2 id="JPA的API介绍"><a href="#JPA的API介绍" class="headerlink" title="JPA的API介绍"></a>JPA的API介绍</h2><p><strong>Persistence对象</strong><br>Persistence对象主要作用是用于获取EntityManagerFactory对象的 。通过调用该类的createEntityManagerFactory静态方法，根据配置文件中持久化单元名称创建EntityManagerFactory。</p>
+<pre><code>@Test
+String unitName = "myJpa";
+EntityManagerFactory factory= Persistence.createEntityManagerFactory(unitName);</code></pre><p><strong>EntityManagerFactory</strong><br>EntityManagerFactory 接口主要用来创建 EntityManager 实例<br>//创建实体管理类<br><code>EntityManager em = factory.createEntityManager();</code><br>由于EntityManagerFactory 是一个线程安全的对象（即多个线程访问同一个EntityManagerFactory 对象不会有线程安全问题），并且EntityManagerFactory 的创建极其浪费资源，所以在使用JPA编程时，我们可以对EntityManagerFactory 的创建进行优化，只需要做到一个工程只存在一个EntityManagerFactory 即可</p>
+<p><strong>EntityManager</strong><br>在 JPA 规范中, EntityManager是完成持久化操作的核心对象。实体类作为普通 java对象，只有在调用 EntityManager将其持久化后才会变成持久化对象。EntityManager对象在一组实体类与底层数据源之间进行 O/R 映射的管理。它可以用来管理和更新 Entity Bean, 根椐主键查找 Entity Bean, 还可以通过JPQL语句查询实体。<br>我们可以通过调用EntityManager的方法完成获取事务，以及持久化数据库的操作<br>方法说明：</p>
+<blockquote>
+<p>getTransaction : 获取事务对象<br>persist ： 保存操作<br>merge ： 更新操作<br>remove ： 删除操作<br>find/getReference ： 根据id查询</p>
+</blockquote>
+<p><strong>EntityTransaction</strong><br>在 JPA 规范中, EntityTransaction是完成事务操作的核心对象，对于EntityTransaction在我们的java代码中承接的功能比较简单</p>
+<blockquote>
+<p>begin：开启事务<br>commit：提交事务<br>rollback：回滚事务</p>
+</blockquote>
+<h2 id="JPAUtil工具类"><a href="#JPAUtil工具类" class="headerlink" title="JPAUtil工具类"></a>JPAUtil工具类</h2><pre><code>import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public final class JPAUtil {
+    // JPA的实体管理器工厂：相当于Hibernate的SessionFactory
+    private static EntityManagerFactory em;
+    // 使用静态代码块赋值
+    static {
+        // 注意：该方法参数必须和persistence.xml中persistence-unit标签name属性取值一致
+        em = Persistence.createEntityManagerFactory("myPersistUnit");
+    }
+    /**
+     * 使用管理器工厂生产一个管理器对象
+     * 
+     * @return
+     */
+    public static EntityManager getEntityManager() {
+        return em.createEntityManager();
+    }
+}</code></pre><h2 id="JPA增删改查"><a href="#JPA增删改查" class="headerlink" title="JPA增删改查"></a>JPA增删改查</h2><h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><pre><code>@Test
+public void Add() {
+    // 定义对象
+    Student c = new Student();
+    c.setPerName("张三");
+    c.setPerAge(18);
+    c.setPerSex("男");
+    c.setPerMajor("java开发攻城狮");
+    c.setPerPhone("17856520896");
+    EntityManager em = null;
+    EntityTransaction tx = null;
+    try {
+        // 获取实体管理对象
+        em = JPAUtil.getEntityManager();
+        // 获取事务对象
+        tx = em.getTransaction();
+        // 开启事务
+        tx.begin();
+        // 执行操作
+        em.persist(c);
+        // 提交事务
+        tx.commit();
+    } catch (Exception e) {
+        // 回滚事务
+        tx.rollback();
+        e.printStackTrace();
+    } finally {
+        // 释放资源
+        em.close();
+    }
+}</code></pre><h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><pre><code>@Test
+public void Merge(){  
+    //定义对象
+    EntityManager em=null;  
+    EntityTransaction tx=null;  
+    try{  
+        //获取实体管理对象
+        em=JPAUtil.getEntityManager();
+        //获取事务对象
+        tx=em.getTransaction();
+        //开启事务
+        tx.begin();
+        //执行操作
+        Student c1 = em.find(Student.class, 1L);
+        c1.setPerName("李四");
+        em.clear();//把c1对象从缓存中清除出去
+        em.merge(c1);
+        //提交事务
+        tx.commit(); 
+    }catch(Exception e){
+        //回滚事务
+        tx.rollback();
+        e.printStackTrace();  
+    }finally{  
+        //释放资源
+        em.close();  
+    }    
+}</code></pre><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre><code>@Test
+public void testRemove() {
+    // 定义对象
+    EntityManager em = null;
+    EntityTransaction tx = null;
+    try {
+        // 获取实体管理对象
+        em = JPAUtil.getEntityManager();
+        // 获取事务对象
+        tx = em.getTransaction();
+        // 开启事务
+        tx.begin();
+        // 执行操作
+        Student c1 = em.find(Student.class,1L);
+        em.remove(c1);
+        // 提交事务
+        tx.commit();
+    } catch (Exception e) {
+        // 回滚事务
+        tx.rollback();
+        e.printStackTrace();
+    } finally {
+        // 释放资源
+        em.close();
+    }
+}</code></pre><h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="根据id查询"><a href="#根据id查询" class="headerlink" title="根据id查询"></a>根据id查询</h3><p>立即加载的策略方法</p>
+<pre><code>@Test
+public void testGetOne() {
+    // 定义对象
+    EntityManager em = null;
+    EntityTransaction tx = null;
+    try {
+        // 获取实体管理对象
+        em = JPAUtil.getEntityManager();
+        // 获取事务对象
+        tx = em.getTransaction();
+        // 开启事务
+        tx.begin();
+        // 执行操作
+        Customer c1 = em.find(Customer.class, 1L);
+        // 提交事务
+        tx.commit();
+        System.out.println(c1); // 输出查询对象
+    } catch (Exception e) {
+        // 回滚事务
+        tx.rollback();
+        e.printStackTrace();
+    } finally {
+        // 释放资源
+        em.close();
+    }
+}</code></pre><p> 延迟加载的策略方法：</p>
+<pre><code>/**
+ * 查询一个： 使用延迟加载策略
+ */
+@Test
+public void testLoadOne() {
+    // 定义对象
+    EntityManager em = null;
+    EntityTransaction tx = null;
+    try {
+        // 获取实体管理对象
+        em = JPAUtil.getEntityManager();
+        // 获取事务对象
+        tx = em.getTransaction();
+        // 开启事务
+        tx.begin();
+        // 执行操作
+        Customer c1 = em.getReference(Customer.class, 1L);
+        // 提交事务
+        tx.commit();
+        System.out.println(c1);
+    } catch (Exception e) {
+        // 回滚事务
+        tx.rollback();
+        e.printStackTrace();
+    } finally {
+        // 释放资源
+        em.close();
+    }
+}</code></pre><h3 id="查询全部"><a href="#查询全部" class="headerlink" title="查询全部"></a>查询全部</h3><pre><code>//查询所有
+@Test
+    public void findAll() {
+        EntityManager em = null;
+        EntityTransaction tx = null;
+        try {
+            //获取实体管理对象
+            em = JPAUtil.getEntityManager();
+            //获取事务对象
+            tx = em.getTransaction();
+            tx.begin();
+            // 创建query对象
+            String jpql = "from Student";
+            Query query = em.createQuery(jpql);
+            // 查询并得到返回结果
+            List list = query.getResultList(); // 得到集合返回类型
+            for (Object object : list) { //遍历结果集
+                System.out.println(object);
+            }
+            tx.commit();
+        } catch (Exception e) {
+            // 回滚事务
+            tx.rollback();
+            e.printStackTrace();
+        } finally {
+            // 释放资源
+            em.close();
+        }
+    }</code></pre><h3 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h3><pre><code>//分页查询
+@Test
+public void findPaged () {
+    EntityManager em = null;
+    EntityTransaction tx = null;
+    try {
+        //获取实体管理对象
+        em = JPAUtil.getEntityManager();
+        //获取事务对象
+        tx = em.getTransaction();
+        tx.begin();
+        //创建query对象
+        String jpql = "from Student";
+        Query query = em.createQuery(jpql);
+        //起始索引
+        query.setFirstResult(0);
+        //每页显示条数
+        query.setMaxResults(2);
+        //查询并得到返回结果
+        List list = query.getResultList(); //得到集合返回类型
+        for (Object object : list) {
+            System.out.println(object);
+        }
+        tx.commit();
+    } catch (Exception e) {
+        // 回滚事务
+        tx.rollback();
+        e.printStackTrace();
+    } finally {
+        // 释放资源
+        em.close();
+    }
+}</code></pre><h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><pre><code>//条件查询
+@Test
+public void findCondition () {
+    EntityManager em = null;
+    EntityTransaction tx = null;
+    try {
+        //获取实体管理对象
+        em = JPAUtil.getEntityManager();
+        //获取事务对象
+        tx = em.getTransaction();
+        tx.begin();
+        //创建query对象
+        String jpql = "from Student where perName like ? ";
+        Query query = em.createQuery(jpql);
+        //对占位符赋值，从1开始
+        query.setParameter(1, "张三%");
+        //查询并得到返回结果
+        Object object = query.getSingleResult(); //得到唯一的结果集对象
+        System.out.println(object);
+        tx.commit();
+    } catch (Exception e) {
+        // 回滚事务
+        tx.rollback();
+        e.printStackTrace();
+    } finally {
+        // 释放资源
+        em.close();
+    }
+}</code></pre><h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><pre><code>//根据学生id倒序查询所有
+@Test
+public void testOrder() {
+    EntityManager em = null;
+    EntityTransaction tx = null;
+    try {
+        //获取实体管理对象
+        em = JPAUtil.getEntityManager();
+        //获取事务对象
+        tx = em.getTransaction();
+        tx.begin();
+        // 创建query对象
+        String jpql = "from Student order by perId desc";
+        Query query = em.createQuery(jpql);
+        // 查询并得到返回结果
+        List list = query.getResultList(); // 得到集合返回类型
+        for (Object object : list) {
+            System.out.println(object);
+        }
+        tx.commit();
+    } catch (Exception e) {
+        // 回滚事务
+        tx.rollback();
+        e.printStackTrace();
+    } finally {
+        // 释放资源
+        em.close();
+    }
+}</code></pre><h3 id="统计查询"><a href="#统计查询" class="headerlink" title="统计查询"></a>统计查询</h3><pre><code>//统计查询
+@Test
+public void findCount() {
+    EntityManager em = null;
+    EntityTransaction tx = null;
+    try {
+        //获取实体管理对象
+        em = JPAUtil.getEntityManager();
+        //获取事务对象
+        tx = em.getTransaction();
+        tx.begin();
+        // 查询全部客户
+        // 1.创建query对象
+        String jpql = "select count(perId) from Student";
+        Query query = em.createQuery(jpql);
+        // 2.查询并得到返回结果
+        Object count = query.getSingleResult(); // 得到集合返回类型
+        System.out.println(count);
+        tx.commit();
+    } catch (Exception e) {
+        // 回滚事务
+        tx.rollback();
+        e.printStackTrace();
+    } finally {
+        // 释放资源
+        em.close();
+    }
+}</code></pre><h1 id="Spring-Data-JPA"><a href="#Spring-Data-JPA" class="headerlink" title="Spring Data JPA"></a>Spring Data JPA</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>  Spring Data JPA 是 Spring 基于 ORM 框架、JPA 规范的基础上封装的一套JPA应用框架，可使开发者用极简的代码即可实现对数据库的访问和操作。它提供了包括增删改查等在内的常用功能，且易于扩展！学习并使用 Spring Data JPA 可以极大提高开发效率！<br>  Spring Data JPA 让我们解脱了DAO层的操作，基本上所有CRUD都可以依赖于它来实现,在实际的工作工程中，推荐使用Spring Data JPA + ORM（如：hibernate）完成操作，这样在切换不同的ORM框架时提供了极大的方便，同时也使数据库层操作更加简单，方便解耦</p>
+<h2 id="Spring-Data-JPA-与-JPA和hibernate之间的关系"><a href="#Spring-Data-JPA-与-JPA和hibernate之间的关系" class="headerlink" title="Spring Data JPA 与 JPA和hibernate之间的关系"></a>Spring Data JPA 与 JPA和hibernate之间的关系</h2><p>  JPA是一套规范，内部是有接口和抽象类组成的。hibernate是一套成熟的ORM框架，而且Hibernate实现了JPA规范，所以也可以称hibernate为JPA的一种实现方式，我们使用JPA的API编程，意味着站在更高的角度上看待问题（面向接口编程）<br>  Spring Data JPA是Spring提供的一套对JPA操作更加高级的封装，是在JPA规范下的专门用来进行数据持久化的解决方案。</p>
+<h2 id="Spring-Data-JPA案例"><a href="#Spring-Data-JPA案例" class="headerlink" title="Spring Data JPA案例"></a>Spring Data JPA案例</h2><h3 id="引入Spring-Data-JPA的坐标"><a href="#引入Spring-Data-JPA的坐标" class="headerlink" title="引入Spring Data JPA的坐标"></a>引入Spring Data JPA的坐标</h3><pre><code>    &lt;!-- 公共版本号 --&gt;
+    &lt;properties&gt;
+        &lt;spring.version&gt;4.2.4.RELEASE&lt;/spring.version&gt;
+        &lt;hibernate.version&gt;5.0.7.Final&lt;/hibernate.version&gt;
+        &lt;slf4j.version&gt;1.6.6&lt;/slf4j.version&gt;
+        &lt;log4j.version&gt;1.2.12&lt;/log4j.version&gt;
+        &lt;c3p0.version&gt;0.9.1.2&lt;/c3p0.version&gt;
+        &lt;mysql.version&gt;5.1.6&lt;/mysql.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;!-- junit单元测试 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.9&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- spring aspectj --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.aspectj&lt;/groupId&gt;
+            &lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt;
+            &lt;version&gt;1.6.8&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-aop&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-context-support&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-orm&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- hibernate --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+            &lt;artifactId&gt;hibernate-core&lt;/artifactId&gt;
+            &lt;version&gt;${hibernate.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+            &lt;artifactId&gt;hibernate-entitymanager&lt;/artifactId&gt;
+            &lt;version&gt;${hibernate.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+            &lt;artifactId&gt;hibernate-validator&lt;/artifactId&gt;
+            &lt;version&gt;5.2.1.Final&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- c3p0 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;c3p0&lt;/groupId&gt;
+            &lt;artifactId&gt;c3p0&lt;/artifactId&gt;
+            &lt;version&gt;${c3p0.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+            &lt;version&gt;${log4j.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+            &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
+            &lt;version&gt;${slf4j.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+            &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+            &lt;version&gt;${slf4j.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;${mysql.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.data&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-data-jpa&lt;/artifactId&gt;
+            &lt;version&gt;1.9.0.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+            &lt;version&gt;4.2.4.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- 使用spring data jpa 必须引入 --&gt;
+        &lt;dependency&gt;  
+            &lt;groupId&gt;javax.el&lt;/groupId&gt;  
+            &lt;artifactId&gt;javax.el-api&lt;/artifactId&gt;  
+            &lt;version&gt;2.2.4&lt;/version&gt;  
+        &lt;/dependency&gt;  
+
+        &lt;dependency&gt;  
+            &lt;groupId&gt;org.glassfish.web&lt;/groupId&gt;  
+            &lt;artifactId&gt;javax.el&lt;/artifactId&gt;  
+            &lt;version&gt;2.2.4&lt;/version&gt;  
+        &lt;/dependency&gt; 
+    &lt;/dependencies&gt;</code></pre><h3 id="Spring整合Spring-Data-JPA"><a href="#Spring整合Spring-Data-JPA" class="headerlink" title="Spring整合Spring Data JPA"></a>Spring整合Spring Data JPA</h3><pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:task="http://www.springframework.org/schema/task"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/data/jpa 
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"&gt;
+
+    &lt;!-- 1.dataSource 配置数据库连接池--&gt;
+    &lt;bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"&gt;
+        &lt;property name="driverClass" value="com.mysql.jdbc.Driver" /&gt;
+        &lt;property name="jdbcUrl" value="jdbc:mysql://localhost:3306/jpa" /&gt;
+        &lt;property name="user" value="root" /&gt;
+        &lt;property name="password" value="rootroot" /&gt;
+    &lt;/bean&gt;
+
+    &lt;!-- 2.配置entityManagerFactory --&gt;
+    &lt;bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"&gt;
+        &lt;property name="dataSource" ref="dataSource" /&gt;
+        &lt;!-- 配置扫描实体类所在的包 --&gt;
+        &lt;property name="packagesToScan" value="com.dzkj.domain" /&gt;
+        &lt;!--  jpa实现厂家 --&gt;
+        &lt;property name="persistenceProvider"&gt;
+            &lt;bean class="org.hibernate.jpa.HibernatePersistenceProvider" /&gt;
+        &lt;/property&gt;
+        &lt;!--JPA的供应商适配器--&gt;
+        &lt;property name="jpaVendorAdapter"&gt;
+            &lt;bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"&gt;
+                &lt;property name="generateDdl" value="false" /&gt;
+                &lt;property name="database" value="MYSQL" /&gt;
+                &lt;property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" /&gt;
+                &lt;property name="showSql" value="true" /&gt;
+            &lt;/bean&gt;
+        &lt;/property&gt;
+        &lt;property name="jpaDialect"&gt;
+            &lt;bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" /&gt;
+        &lt;/property&gt;
+         &lt;!--注入jpa的配置信息
+            加载jpa的基本配置信息和jpa实现方式（hibernate）的配置信息
+            hibernate.hbm2ddl.auto : 自动创建数据库表
+                create ： 每次都会重新创建数据库表
+                update：有表不会重新创建，没有表会重新创建表
+        --&gt;
+        &lt;property name="jpaProperties" &gt;
+            &lt;props&gt;
+                &lt;prop key="hibernate.hbm2ddl.auto"&gt;update&lt;/prop&gt;
+            &lt;/props&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+
+    &lt;!-- 3.事务管理器--&gt;
+    &lt;!-- JPA事务管理器  --&gt;
+    &lt;bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"&gt;
+        &lt;property name="entityManagerFactory" ref="entityManagerFactory" /&gt;
+    &lt;/bean&gt;
+
+    &lt;!-- 整合spring data jpa--&gt;
+    &lt;jpa:repositories base-package="com.dzkj.dao"
+        transaction-manager-ref="transactionManager"
+        entity-manager-factory-ref="entityManagerFactory"&gt;&lt;/jpa:repositories&gt;
+
+    &lt;!-- 4.声明式事务--&gt;
+    &lt;tx:advice id="txAdvice" transaction-manager="transactionManager"&gt;
+        &lt;tx:attributes&gt;
+            &lt;tx:method name="save*" propagation="REQUIRED"/&gt;
+            &lt;tx:method name="insert*" propagation="REQUIRED"/&gt;
+            &lt;tx:method name="update*" propagation="REQUIRED"/&gt;
+            &lt;tx:method name="delete*" propagation="REQUIRED"/&gt;
+            &lt;tx:method name="get*" read-only="true"/&gt;
+            &lt;tx:method name="find*" read-only="true"/&gt;
+            &lt;tx:method name="*" propagation="REQUIRED"/&gt;
+        &lt;/tx:attributes&gt;
+    &lt;/tx:advice&gt;
+
+    &lt;!-- 5.aop--&gt;
+    &lt;aop:config&gt;
+        &lt;aop:pointcut id="mypoint" expression="execution(* com.dzkj.service.*.*(..))" /&gt;
+        &lt;aop:advisor advice-ref="txAdvice" pointcut-ref="mypoint" /&gt;
+    &lt;/aop:config&gt;
+
+    &lt;context:component-scan base-package="com.dzkj"&gt;&lt;/context:component-scan&gt;
+
+&lt;/beans&gt;</code></pre><h3 id="JPA注解配置实体类映射关系"><a href="#JPA注解配置实体类映射关系" class="headerlink" title="JPA注解配置实体类映射关系"></a>JPA注解配置实体类映射关系</h3><pre><code>import javax.persistence.*;
+/**
+*        * 所有的注解都是使用JPA的规范提供的注解，
+ *        * 所以在导入注解包的时候，一定要导入javax.persistence下的
+ */
+@Entity
+@Table(name="per_student") //建立实体类和表的映射关系
+public class Student implements Serializable{
+
+    @Id//声明当前私有属性为主键
+    @GeneratedValue(strategy=GenerationType.IDENTITY) //配置主键的生成策略
+    @Column(name="per_id") //指定和表中per_id字段的映射关系
+    private Long perId;
+
+    @Column(name="per_name") //指定和表中per_name字段的映射关系
+    private String perName;
+
+    @Column(name="per_age")//指定和表中per_age字段的映射关系
+    private int perAge;
+
+    @Column(name="per_sex")//指定和表中per_sex字段的映射关系
+    private String perSex;
+
+    @Column(name="per_major")//指定和表中per_major字段的映射关系
+    private String perMajor;
+
+    @Column(name="per_phone")//指定和表中per_phone字段的映射关系
+    private String perPhone;
+
+    public Long getPerId() {
+        return perId;
+    }
+
+    public void setPerId(Long perId) {
+        this.perId = perId;
+    }
+
+    public String getPerName() {
+        return perName;
+    }
+
+    public void setPerName(String perName) {
+        this.perName = perName;
+    }
+
+    public int getPerAge() {
+        return perAge;
+    }
+
+    public void setPerAge(int perAge) {
+        this.perAge = perAge;
+    }
+
+    public String getPerSex() {
+        return perSex;
+    }
+
+    public void setPerSex(String perSex) {
+        this.perSex = perSex;
+    }
+
+    public String getPerMajor() {
+        return perMajor;
+    }
+
+    public void setPerMajor(String perMajor) {
+        this.perMajor = perMajor;
+    }
+
+    public String getPerPhone() {
+        return perPhone;
+    }
+
+    public void setPerPhone(String perPhone) {
+        this.perPhone = perPhone;
+    }
+}</code></pre><h3 id="编写Spring-Data-JPA规范的Dao层接口"><a href="#编写Spring-Data-JPA规范的Dao层接口" class="headerlink" title="编写Spring Data JPA规范的Dao层接口"></a>编写Spring Data JPA规范的Dao层接口</h3><p>1.创建一个Dao层接口，并实现JpaRepository和JpaSpecificationExecutor<br>2.提供相应的泛型</p>
+<pre><code>import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import com.dzkj.Student;
+/**
+ * JpaRepository&lt;实体类类型，主键类型&gt;：用来完成基本CRUD操作
+ * JpaSpecificationExecutor&lt;实体类类型&gt;：用于复杂查询（分页等查询操作）
+ */
+public interface StudentDao extends JpaRepository&lt;Student, Long&gt;, JpaSpecificationExecutor&lt;Student&gt; {
+}</code></pre><h3 id="CRUD操作"><a href="#CRUD操作" class="headerlink" title="CRUD操作"></a>CRUD操作</h3><pre><code>@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations="classpath:applicationContext.xml")
+public class StudenDaoTest {
+
+    @Autowired
+    private StudentDao studentDao;
+
+    /**
+     * 添加学生：调用save(obj)方法
+     */
+    @Test
+    public void testSave() {
+        Student c = new Student();
+        c.setperName("李四");
+        studentDao.save(c);
+    }
+
+    /**
+     * 修改学生：调用save(obj)方法
+     * 对于save方法的解释：如果执行此方法是对象中存在id属性，即为更新操作会先根据id查询，再更新    
+     *                    如果执行此方法中对象中不存在id属性，即为保存操作  
+     */
+    @Test
+    public void testUpdate() {
+        //根据id查询id为1的学生
+        Student student = studentDao.findOne(1l);
+        //修改学生名称
+        student.setCustName("张三");
+        //更新
+        studentDao.save(student);
+    }
+
+    /**
+     * 根据id删除：调用delete(id)方法
+     */
+    @Test
+    public void testDelete() {
+        studentDao.delete(1l);
+    }
+
+    /**
+     * 根据id查询：调用findOne(id)方法
+     */
+    @Test
+    public void testFindById() {
+        Student student = studentDao.findOne(2l);
+        System.out.println(student);
+    }
+}</code></pre><h2 id="spring内部原理"><a href="#spring内部原理" class="headerlink" title="spring内部原理"></a>spring内部原理</h2><p><a href="https://blog.csdn.net/andy_zhang2007/article/details/84064862?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">Spring Data JPA 工作原理 : 自定义JpaRespository接口却不用提供实现</a></p>
+<h2 id="JPQL的方式查询"><a href="#JPQL的方式查询" class="headerlink" title="JPQL的方式查询"></a>JPQL的方式查询</h2><p>  使用Spring Data JPA提供的查询方法已经可以解决大部分的应用场景，对于某些业务来说，还需要灵活的构造查询条件，这时就可以使用@Query注解，结合JPQL的语句方式完成查询,@Query 只需在方法上面标注该注解，同时提供一个JPQL查询语句,使用时调用该方法就可以了</p>
+<pre><code>public interface CustomerDao extends JpaRepository&lt;Customer, Long&gt;,JpaSpecificationExecutor&lt;Customer&gt; {    
+    //@Query 使用jpql的方式查询所有。
+    @Query(value="from Student")
+    public List&lt;Student&gt; findAllStudent();
+
+    //@Query 使用jpql的方式查询。?1代表参数的占位符，其中1对应方法中的参数索引
+    @Query(value="from Student where perName = ?1")
+    public Student findStudent(String perName);
+
+    //在使用 @Query 的同时，用 @Modifying 来将该操作标识为修改查询，框架最终会生成一个更新的操作，而非查询
+    @Query(value="update Student set perName = ?1 where perId = ?2")
+    @Modifying
+    public void updateStudent(String perName,Long perId);
+}</code></pre><h2 id="SQL语句查询"><a href="#SQL语句查询" class="headerlink" title="SQL语句查询"></a>SQL语句查询</h2><pre><code>    /**
+     * nativeQuery ：false（使用jpql查询） | true（使用本地查询：sql查询）
+     * 默认jpql查询
+     */
+    @Query(value="select * from per_student",nativeQuery=true)
+    public void findSql();</code></pre><h2 id="方法命名规则查询"><a href="#方法命名规则查询" class="headerlink" title="方法命名规则查询"></a>方法命名规则查询</h2><p>  需要按照Spring Data JPA提供的方法命名规则定义方法的名称，Spring Data JPA在程序执行的时候会根据方法名称进行解析，并自动生成查询语句进行查询</p>
+<pre><code>按照Spring Data JPA 定义的规则，查询方法以findBy开头，涉及条件查询时，条件的属性用条件关键字连接，要注意的是：条件属性首字母需大写。框架在进行方法名解析时，会先把方法名多余的前缀截取掉，然后对剩下部分进行解析。</code></pre><pre><code>//方法命名方式查询（根据客户名称查询客户）
+    public Customer findByPerName(String perName);</code></pre><p>具体的关键字，使用方法和生产成SQL如下表所示</p>
+<table>
+<thead>
+<tr>
+<th align="center">: Keyword :</th>
+<th align="center">: Sample :</th>
+<th align="center">: JPQL :</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">:And:</td>
+<td align="center">:findByLastnameAndFirstname:</td>
+<td align="center">:… where x.lastname = ?1 and x.firstname = ?2:</td>
+</tr>
+<tr>
+<td align="center">:Or:</td>
+<td align="center">:findByLastnameOrFirstname:</td>
+<td align="center">:… where x.lastname = ?1 or x.firstname = ?2:</td>
+</tr>
+<tr>
+<td align="center">:Is,Equals    :</td>
+<td align="center">: findByFirstnameIs,findByFirstnameEquals    :</td>
+<td align="center">:… where x.firstname = ?1:</td>
+</tr>
+<tr>
+<td align="center">:Between:</td>
+<td align="center">:findByStartDateBetween:</td>
+<td align="center">:… where x.startDate between ?1 and ?2:</td>
+</tr>
+<tr>
+<td align="center">:LessThan:</td>
+<td align="center">:findByAgeLessThan:</td>
+<td align="center">:… where x.age &lt; ?1:</td>
+</tr>
+<tr>
+<td align="center">:LessThanEqual:</td>
+<td align="center">:findByAgeLessThanEqual:</td>
+<td align="center">:… where x.age ⇐ ?1:</td>
+</tr>
+<tr>
+<td align="center">:GreaterThan:</td>
+<td align="center">:findByAgeGreaterThan:</td>
+<td align="center">:… where x.age &gt; ?1:</td>
+</tr>
+<tr>
+<td align="center">:GreaterThanEqual:</td>
+<td align="center">:findByAgeGreaterThanEqual:</td>
+<td align="center">:… where x.age &gt;= ?1:</td>
+</tr>
+<tr>
+<td align="center">:After:</td>
+<td align="center">:findByStartDateAfter:</td>
+<td align="center">:… where x.startDate &gt; ?1:</td>
+</tr>
+<tr>
+<td align="center">:Before:</td>
+<td align="center">:findByStartDateBefore:</td>
+<td align="center">:… where x.startDate &lt; ?1:</td>
+</tr>
+<tr>
+<td align="center">:IsNull:</td>
+<td align="center">:findByAgeIsNull:</td>
+<td align="center">:… where x.age is null:</td>
+</tr>
+<tr>
+<td align="center">:IsNotNull,NotNull:</td>
+<td align="center">:findByAge(Is)NotNull:</td>
+<td align="center">:… where x.age not null:</td>
+</tr>
+<tr>
+<td align="center">:Like:</td>
+<td align="center">:findByFirstnameLike:</td>
+<td align="center">:… where x.firstname like ?1:</td>
+</tr>
+<tr>
+<td align="center">:NotLike:</td>
+<td align="center">:findByFirstnameNotLike:</td>
+<td align="center">:… where x.firstname not like ?1:</td>
+</tr>
+<tr>
+<td align="center">:StartingWith:</td>
+<td align="center">:findByFirstnameStartingWith:</td>
+<td align="center">:… where x.firstname like ?1 (parameter bound with appended %):</td>
+</tr>
+<tr>
+<td align="center">:EndingWith:</td>
+<td align="center">:findByFirstnameEndingWith:</td>
+<td align="center">:… where x.firstname like ?1 (parameter bound with prepended %):</td>
+</tr>
+<tr>
+<td align="center">:Containing:</td>
+<td align="center">:findByFirstnameContaining:</td>
+<td align="center">:… where x.firstname like ?1 (parameter bound wrapped in %):</td>
+</tr>
+<tr>
+<td align="center">:OrderBy:</td>
+<td align="center">:findByAgeOrderByLastnameDesc:</td>
+<td align="center">:… where x.age = ?1 order by x.lastname desc:</td>
+</tr>
+<tr>
+<td align="center">:Not:</td>
+<td align="center">:findByLastnameNot:</td>
+<td align="center">:… where x.lastname &lt;&gt; ?1:</td>
+</tr>
+<tr>
+<td align="center">:In:</td>
+<td align="center">:findByAgeIn(Collection ages):</td>
+<td align="center">:… where x.age in ?1:</td>
+</tr>
+<tr>
+<td align="center">:NotIn:</td>
+<td align="center">:findByAgeNotIn(Collection age):</td>
+<td align="center">:… where x.age not in ?1:</td>
+</tr>
+<tr>
+<td align="center">:TRUE:</td>
+<td align="center">:findByActiveTrue():</td>
+<td align="center">:… where x.active = true:</td>
+</tr>
+<tr>
+<td align="center">:FALSE:</td>
+<td align="center">:findByActiveFalse():</td>
+<td align="center">:… where x.active = false:</td>
+</tr>
+<tr>
+<td align="center">:IgnoreCase:</td>
+<td align="center">:findByFirstnameIgnoreCase:</td>
+<td align="center">:… where UPPER(x.firstame) = UPPER(?1):</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="Specifications动态查询"><a href="#Specifications动态查询" class="headerlink" title="Specifications动态查询"></a>Specifications动态查询</h1><p>当查询某个实体的时候，给定的条件是不固定的，就需要动态构建相应的查询语句，在Spring Data JPA中可以通过JpaSpecificationExecutor接口查询。相比JPQL,其优势是类型安全,更加的面向对象。</p>
+<h3 id="Specifications-条件查询"><a href="#Specifications-条件查询" class="headerlink" title="Specifications 条件查询"></a>Specifications 条件查询</h3><pre><code>//依赖注入customerDao
+    @Autowired
+    private StudentDao studentDao;    
+    @Test
+    public void testSpecifications() {
+          //使用匿名内部类的方式，创建一个Specification的实现类，并实现toPredicate方法
+        /**
+        *    root    ：Root接口，代表查询的根对象，可以通过root获取实体中的属性
+        *    query    ：代表一个顶层查询对象，用来自定义查询
+        *    cb        ：用来构建查询，此对象里有很多条件方法
+        **/
+        Specification &lt;Student&gt; spec = new Specification&lt;Student&gt;() {
+            public Predicate toPredicate(Root&lt;Student&gt; root, CriteriaQuery&lt;?&gt; query, CriteriaBuilder cb) {
+                //cb:构建查询，添加查询方式   like：模糊匹配
+                //root：从实体Customer对象中按照custName属性进行查询
+                return cb.like(root.get("perName").as(String.class), "张三");
+            }
+        };
+        Student student = studentDao.findOne(spec);
+        System.out.println(student);
+    }</code></pre><h3 id="Specifications-分页查询"><a href="#Specifications-分页查询" class="headerlink" title="Specifications 分页查询"></a>Specifications 分页查询</h3><pre><code>@Test
+    public void testPage() {
+        //构造查询条件
+        Specification&lt;Student&gt; spec = new Specification&lt;Student&gt;() {
+            public Predicate toPredicate(Root&lt;Student&gt; root, CriteriaQuery&lt;?&gt; query, CriteriaBuilder cb) {
+                return cb.like(root.get("perName").as(String.class), "张三%");
+            }
+        };
+        /**
+         * 构造分页参数
+         *         Pageable : 接口
+         *             PageRequest实现了Pageable接口，调用构造方法的形式构造
+         *                 第一个参数：页码（从0开始）
+         *                 第二个参数：每页查询条数
+         */
+        Pageable pageable = new PageRequest(0, 5);
+        /**
+         * 分页查询，封装为Spring Data Jpa 内部的page bean
+         *         此重载的findAll方法为分页方法需要两个参数
+         *             第一个参数：查询条件Specification
+         *             第二个参数：分页参数
+         */
+        Page&lt;Student&gt; page = studentDao.findAll(spec,pageable);
+        /**
+        //获取总页数
+        page.getTotalPages();
+        //获取总记录数    
+        page.getTotalElements();
+        //获取列表数据
+        page.getContent();
+        */
+    }</code></pre><h2 id="映射的注解说明"><a href="#映射的注解说明" class="headerlink" title="映射的注解说明"></a>映射的注解说明</h2><blockquote>
+<p>@OneToMany:<br>      作用：建立一对多的关系映射<br>   属性：<br>       targetEntityClass：指定多的多方的类的字节码<br>       mappedBy：指定从表实体类中引用主表对象的名称。<br>       cascade：指定要使用的级联操作<br>       fetch：指定是否采用延迟加载<br>       orphanRemoval：是否使用孤儿删除</p>
+<p>@ManyToOne<br>   作用：建立多对一的关系<br>   属性：<br>       targetEntityClass：指定一的一方实体类字节码<br>       cascade：指定要使用的级联操作<br>       fetch：指定是否采用延迟加载<br>       optional：关联是否可选。如果设置为false，则必须始终存在非空关系。</p>
+<p>@JoinColumn<br>    作用：用于定义主键字段和外键字段的对应关系。<br>    属性：<br>       name：指定外键字段的名称<br>       referencedColumnName：指定引用主表的主键字段名称<br>       unique：是否唯一。默认值不唯一<br>       nullable：是否允许为空。默认值允许。<br>       insertable：是否允许插入。默认值允许。<br>       updatable：是否允许更新。默认值允许。<br>       columnDefinition：列的定义信息。</p>
+</blockquote>
+<h1 id="多表设计"><a href="#多表设计" class="headerlink" title="多表设计"></a>多表设计</h1><h2 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h2><h3 id="数据库关系的建立"><a href="#数据库关系的建立" class="headerlink" title="数据库关系的建立"></a>数据库关系的建立</h3><p>可以不用创建数据库表 借助springdatajpa的机制自动创建表，在配置文件中添加</p>
+<pre><code>&lt;property name="jpaProperties" &gt;
+    &lt;props&gt;
+        &lt;prop key="hibernate.hbm2ddl.auto"&gt;update&lt;/prop&gt;
+    &lt;/props&gt;
+&lt;/property&gt;</code></pre><pre><code>CREATE TABLE  per_teacher(
+      tea_id bigint(32) NOT NULL AUTO_INCREMENT COMMENT '老师编号(主键)',
+      tea_name varchar(32) NOT NULL COMMENT '老师姓名',
+      tea_age int DEFAULT NULL COMMENT '老师年龄',
+      tea_sex varchar(2) DEFAULT NULL COMMENT '老师性别',
+      tea_major varchar(32) DEFAULT NULL COMMENT '授课专业',
+      tea_phone varchar(64) DEFAULT NULL COMMENT '老师联系电话',
+            PRIMARY KEY (`tea_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE per_student (
+      per_id bigint(32) NOT NULL AUTO_INCREMENT COMMENT '学生编号(主键)',
+      per_name varchar(32) NOT NULL COMMENT '学生姓名',
+      per_age int DEFAULT NULL COMMENT '学生年龄',
+      per_sex varchar(2) DEFAULT NULL COMMENT '学生性别',
+      per_major varchar(32) DEFAULT NULL COMMENT '学生专业',
+      per_phone varchar(64) DEFAULT NULL COMMENT '学生联系电话',
+            per_tea_id bigint(32) NOT NULL COMMENT '老师编号(外键)',
+      PRIMARY KEY (`per_id`),
+            foreign key(per_tea_id) references per_Teacher(tea_id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;</code></pre><h3 id="实体类关系建立"><a href="#实体类关系建立" class="headerlink" title="实体类关系建立"></a>实体类关系建立</h3><p>老师实体类</p>
+<pre><code>import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.*;
+
+@Entity//表示当前类是一个实体类
+@Table(name="per_teacher")//建立当前实体类和表之间的对应关系
+public class Teacher {
+    @Id//表明当前私有属性是主键
+    @GeneratedValue(strategy=GenerationType.IDENTITY)//指定主键的生成策略
+    @Column(name="tea_id")//指定和数据库表中的cust_id列对应
+    private Long teaId;
+
+    @Column(name="tea_name")
+    private String teaName;
+
+    @Column(name="tea_age")
+    private int teaAge;
+
+    @Column(name="tea_sex")
+    private String teaSex;
+
+    @Column(name="tea_major")
+    private String teaMajor;
+
+    @Column(name="tea_phone")
+    private String teaPhone;
+
+    //设置了双向关系后，会发送两条insert语句，一条多余的update语句，解决思路就是一方放弃维护权
+    @OneToMany(mappedBy="teacher",cascade = CascadeType.ALL)
+    private Set&lt;Student&gt; students = new HashSet&lt;&gt;();
+
+    public Long getTeaId() {
+        return teaId;
+    }
+
+    public void setTeaId(Long teaId) {
+        this.teaId = teaId;
+    }
+
+    public String getTeaName() {
+        return teaName;
+    }
+
+    public void setTeaName(String teaName) {
+        this.teaName = teaName;
+    }
+
+    public int getTeaAge() {
+        return teaAge;
+    }
+
+    public void setTeaAge(int teaAge) {
+        this.teaAge = teaAge;
+    }
+
+    public String getTeaSex() {
+        return teaSex;
+    }
+
+    public void setTeaSex(String teaSex) {
+        this.teaSex = teaSex;
+    }
+
+    public String getTeaMajor() {
+        return teaMajor;
+    }
+
+    public void setTeaMajor(String teaMajor) {
+        this.teaMajor = teaMajor;
+    }
+
+    public String getTeaPhone() {
+        return teaPhone;
+    }
+
+    public void setTeaPhone(String teaPhone) {
+        this.teaPhone = teaPhone;
+    }
+
+    public Set&lt;Student&gt; getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set&lt;Student&gt; students) {
+        this.students = students;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher [teaId=" + teaId + ", teaName=" + teaName + ", teaAge=" + teaAge + ", teaSex=" + teaSex
+                + ", teaMajor=" + teaMajor + ", teaPhone=" + teaPhone + ", students=" + students + "]";
+    }
+
+}</code></pre><p>学生实体类</p>
+<pre><code>import java.io.Serializable;
+import javax.persistence.*;
+
+@Entity
+@Table(name="per_student") //建立实体类和表的映射关系
+public class Student implements Serializable{
+
+    @Id//声明当前私有属性为主键
+    @GeneratedValue(strategy=GenerationType.IDENTITY) //配置主键的生成策略
+    @Column(name="per_id") //指定和表中per_id字段的映射关系
+    private Long perId;
+
+    @Column(name="per_name") //指定和表中per_name字段的映射关系
+    private String perName;
+
+    @Column(name="per_age")//指定和表中per_age字段的映射关系
+    private int perAge;
+
+    @Column(name="per_sex")//指定和表中per_sex字段的映射关系
+    private String perSex;
+
+    @Column(name="per_major")//指定和表中per_major字段的映射关系
+    private String perMajor;
+
+    @Column(name="per_phone")//指定和表中per_phone字段的映射关系
+    private String perPhone;
+
+    //多对一关系映射：多个学生对应老师
+    @ManyToOne(targetEntity=Teacher.class)
+    @JoinColumn(name="per_tea_id",referencedColumnName="tea_id")
+    private Teacher teacher;
+
+    public Long getPerId() {
+        return perId;
+    }
+
+    public void setPerId(Long perId) {
+        this.perId = perId;
+    }
+
+    public String getPerName() {
+        return perName;
+    }
+
+    public void setPerName(String perName) {
+        this.perName = perName;
+    }
+
+    public int getPerAge() {
+        return perAge;
+    }
+
+    public void setPerAge(int perAge) {
+        this.perAge = perAge;
+    }
+
+    public String getPerSex() {
+        return perSex;
+    }
+
+    public void setPerSex(String perSex) {
+        this.perSex = perSex;
+    }
+
+    public String getPerMajor() {
+        return perMajor;
+    }
+
+    public void setPerMajor(String perMajor) {
+        this.perMajor = perMajor;
+    }
+
+    public String getPerPhone() {
+        return perPhone;
+    }
+
+    public void setPerPhone(String perPhone) {
+        this.perPhone = perPhone;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    @Override
+    public String toString() {
+        return "Student [perId=" + perId + ", perName=" + perName + ", perAge=" + perAge + ", perSex=" + perSex
+                + ", perMajor=" + perMajor + ", perPhone=" + perPhone + ", teacher=" + teacher + "]";
+    }
+
+}</code></pre><h4 id="添加-1"><a href="#添加-1" class="headerlink" title="添加"></a>添加</h4><pre><code>import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.dzkj.dao.StudentDao;
+import com.dzkj.dao.TeacherDao;
+import com.dzkj.domain.Student;
+import com.dzkj.domain.Teacher;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations="classpath:applicationContext.xml")
+public class OneToManyTest {
+    @Autowired
+    private TeacherDao teacherDao;
+
+    @Autowired
+    private StudentDao studentDao;
+
+    @Test
+    @Transactional  //开启事务
+    @Rollback(false)//设置为不回滚
+    public void testAdd() {
+        Teacher t = new Teacher();
+        t.setTeaName("王老师");
+        t.setTeaAge(23);
+        t.setTeaSex("男");
+        t.setTeaMajor("java开发");
+        t.setTeaPhone("17856520899");
+
+        Student s = new Student();
+        s.setPerName("张三");
+        s.setPerAge(18);
+        s.setPerSex("男");
+        s.setPerMajor("java开发攻城狮");
+        s.setPerPhone("17856520896");
+
+        t.getStudents().add(s);
+        s.setTeacher(t);
+        teacherDao.save(t);
+        studentDao.save(s);
+
+    }</code></pre><h4 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h4><blockquote>
+<p>有从表数据<br> 1、在默认情况下，它会把外键字段置为null，然后删除主表数据。如果在数据库的表结构上，外键字段有非空约束，默认情况就会报错&gt;了。<br> 2、如果配置了放弃维护关联关系的权利，则不能删除（与外键字段是否允许为null，        没有关系）因为在删除时，它根本不会去更&gt;新从表的外键字段了。<br> 3、如果还想删除，使用级联删除引用</p>
+<p>没有从表数据引用：随便删</p>
+</blockquote>
+<pre><code>@Autowired
+private CustomerDao customerDao;
+
+@Test
+@Transactional
+@Rollback(false)//设置为不回滚
+public void testDelete() {
+    customerDao.delete(1l);
+}</code></pre><h4 id="级联操作"><a href="#级联操作" class="headerlink" title="级联操作"></a>级联操作</h4><pre><code>    /**
+     * cascade:配置级联操作
+     *         CascadeType.MERGE    级联更新
+     *         CascadeType.PERSIST    级联保存：
+     *         CascadeType.REFRESH 级联刷新：
+     *         CascadeType.REMOVE    级联删除：
+     *         CascadeType.ALL        包含所有
+     */
+    @OneToMany(mappedBy="Teacher",cascade=CascadeType.ALL)</code></pre><h2 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h2><h3 id="实体类关系配置"><a href="#实体类关系配置" class="headerlink" title="实体类关系配置"></a>实体类关系配置</h3><p>用户实体类</p>
+<pre><code>/**
+ * 用户的数据模型
+ */
+@Entity
+@Table(name="sys_user")
+public class SysUser implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="user_id")
+    private Long userId;
+    @Column(name="user_code")
+    private String userCode;
+    @Column(name="user_name")
+    private String userName;
+    @Column(name="user_password")
+    private String userPassword;
+    @Column(name="user_state")
+    private String userState;
+
+    //多对多关系映射
+    @ManyToMany(mappedBy="users")
+    private Set&lt;SysRole&gt; roles = new HashSet&lt;SysRole&gt;(0);
+
+    public Long getUserId() {
+        return userId;
+    }
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+    public String getUserCode() {
+        return userCode;
+    }
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
+    }
+    public String getUserName() {
+        return userName;
+    }
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+    public String getUserPassword() {
+        return userPassword;
+    }
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+    public String getUserState() {
+        return userState;
+    }
+    public void setUserState(String userState) {
+        this.userState = userState;
+    }
+    public Set&lt;SysRole&gt; getRoles() {
+        return roles;
+    }
+    public void setRoles(Set&lt;SysRole&gt; roles) {
+        this.roles = roles;
+    }
+    @Override
+    public String toString() {
+        return "SysUser [userId=" + userId + ", userCode=" + userCode + ", userName=" + userName + ", userPassword="
+                + userPassword + ", userState=" + userState + "]";
+    }
+}</code></pre><p>角色实体类</p>
+<pre><code>/**
+ * 角色的数据模型
+ */
+@Entity
+@Table(name="sys_role")
+public class SysRole implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="role_id")
+    private Long roleId;
+    @Column(name="role_name")
+    private String roleName;
+    @Column(name="role_memo")
+    private String roleMemo;
+
+    //多对多关系映射
+    @ManyToMany
+    @JoinTable(name="user_role_rel",//中间表的名称
+              //中间表user_role_rel字段关联sys_role表的主键字段role_id
+              joinColumns={@JoinColumn(name="role_id",referencedColumnName="role_id")},
+              //中间表user_role_rel的字段关联sys_user表的主键user_id
+              inverseJoinColumns={@JoinColumn(name="user_id",referencedColumnName="user_id")}
+    )
+    private Set&lt;SysUser&gt; users = new HashSet&lt;SysUser&gt;(0);
+
+
+    public Long getRoleId() {
+        return roleId;
+    }
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
+    public String getRoleName() {
+        return roleName;
+    }
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+    public String getRoleMemo() {
+        return roleMemo;
+    }
+    public void setRoleMemo(String roleMemo) {
+        this.roleMemo = roleMemo;
+    }
+    public Set&lt;SysUser&gt; getUsers() {
+        return users;
+    }
+    public void setUsers(Set&lt;SysUser&gt; users) {
+        this.users = users;
+    }
+    @Override
+    public String toString() {
+        return "SysRole [roleId=" + roleId + ", roleName=" + roleName + ", roleMemo=" + roleMemo + "]";
+    }
+}</code></pre><h3 id="添加-2"><a href="#添加-2" class="headerlink" title="添加"></a>添加</h3><pre><code>@Autowired
+    private UserDao userDao;
+
+    @Autowired
+    private RoleDao roleDao;
+    /**
+     * 需求：
+     *     保存用户和角色
+     * 要求：
+     *     创建2个用户和3个角色
+     *     让1号用户具有1号和2号角色(双向的)
+     *     让2号用户具有2号和3号角色(双向的)
+     *  保存用户和角色
+     * 问题：
+     *  在保存时，会出现主键重复的错误，因为都是要往中间表中保存数据造成的。
+     * 解决办法：
+     *     让任意一方放弃维护关联关系的权利
+     */
+    @Test
+    @Transactional  //开启事务
+    @Rollback(false)//设置为不回滚
+    public void test1(){
+        //创建对象
+        SysUser u1 = new SysUser();
+        u1.setUserName("用户1");
+        SysRole r1 = new SysRole();
+        r1.setRoleName("角色1");
+        //建立关联关系
+        u1.getRoles().add(r1);
+        r1.getUsers().add(u1);
+        //保存
+        roleDao.save(r1);
+        userDao.save(u1);
+    }</code></pre><h3 id="删除-2"><a href="#删除-2" class="headerlink" title="删除"></a>删除</h3><pre><code>@Autowired
+    private UserDao userDao;
+    /**
+     * 删除操作
+     *     在多对多的删除时，双向级联删除根本不能配置
+     * 禁用
+     *    如果配了的话，如果数据之间有相互引用关系，可能会清空所有数据
+     */
+    @Test
+    @Transactional
+    @Rollback(false)//设置为不回滚
+    public void testDelete() {
+        userDao.delete(1l);
+    }</code></pre><h3 id="对象导航查询"><a href="#对象导航查询" class="headerlink" title="对象导航查询"></a>对象导航查询</h3><p>对象图导航检索方式是根据已经加载的对象，导航到他的关联对象。它利用类与类之间的关系来检索对象。例如：我们通过ID查询方式查出一个老师，可以调用Teacher类中的getLinkMans()方法来获取该客户的所有联系人。对象导航查询的使用要求是：两个对象之间必须存在关联关系。</p>
+<p>查询一个老师，获取该老师的所有学生</p>
+<pre><code>@Autowired
+    private CustomerDao customerDao;
+
+    @Test
+    //由于是在java代码中测试，为了解决no session问题，将操作配置到同一个事务中
+    @Transactional 
+    public void testFind() {
+        Teacher teacher = teacherDao.findOne(5l);
+        Set&lt;Student&gt; Students = teacher.getStudents();//对象导航查询
+        for(Student student : Students) {
+              System.out.println(student);
+        }
+    }</code></pre><p>查询一个学生，获取该学生的所有老师</p>
+<pre><code>@Autowired
+    private StudentDao studentDao;
+
+
+    @Test
+    public void testFind() {
+        Student Student = studentDao.findOne(4l);
+        Teacher teacher = Student.getTeacher(); //对象导航查询
+        System.out.println(teacher);
+    }</code></pre><p>查询学生时，肯定会看看该学生的专业老师。如果我们不查的话，在用的时候还要自己写代码，调用方法去查询。如果我们查出来的话，一个对象不会消耗太多的内存。而且多数情况下我们都是要使用的<br>** 解决： 采用立即加载的思想。通过配置的方式来设定，只要查询从表实体，就把主表实体对象同时查出来 **</p>
+<pre><code>/**
+     * 在联系人对象的@ManyToOne注解中添加fetch属性
+     *         FetchType.EAGER    ：立即加载
+     *         FetchType.LAZY    ：延迟加载
+     */
+    @ManyToOne(targetEntity=Teacher.class,fetch=FetchType.EAGER)
+    @JoinColumn(name="per_tea_id",referencedColumnName="tea_id")
+    private Teacher teacher;</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Hanair</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://join2964.github.io/2020/03/23/springdatasum/">https://join2964.github.io/2020/03/23/springdatasum/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Hanair</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">学习</span>
+                                </a>
+                            
+                                <a href="/tags/spring/">
+                                    <span class="chip bg-color">spring</span>
+                                </a>
+                            
+                                <a href="/tags/springdata/">
+                                    <span class="chip bg-color">springdata</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80OTMyOS8yNTgyMQ==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/04/08/mysql/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="mysql启动失败">
+                        
+                        <span class="card-title">mysql启动失败</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            mysql启动失败：mysql服务无法启动
+mysql5.7安装
+mysql发生系统错误2
+解决方法：切换到bin目录后，首先删除前面安装的MySQL服务，然后在重新安装MySQL服务，然后启动。
+
+        document.que
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Hanair
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/redis/">
+                        <span class="chip bg-color">redis</span>
+                    </a>
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%99%E7%A8%8B/">
+                        <span class="chip bg-color">教程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/03/21/redissum/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="redis学习记录">
+                        
+                        <span class="card-title">redis学习记录</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            redis简介Redis：开源、免费、高性能、K-V数据库、内存数据库、非关系型数据库，支持持久化、集群和事务
+
+Centos7 安装redis
+Redis 连接时报错：Could not connect to Redis at 127.0
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Hanair
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/redis/">
+                        <span class="chip bg-color">redis</span>
+                    </a>
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%99%E7%A8%8B/">
+                        <span class="chip bg-color">教程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Hanair</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1395023445@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1395023445" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1395023445" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/u/6123585541/home?wvr=5" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/u/6123585541/home?wvr=5" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+    <a href="https://www.zhihu.com/people/nan-yi-shen-yong-52" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/nan-yi-shen-yong-52" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
