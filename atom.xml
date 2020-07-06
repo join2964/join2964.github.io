@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Knowing good</title>
+  
+  <subtitle>Know</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://join2964.github.io/"/>
+  <updated>2020-04-30T09:57:25.963Z</updated>
+  <id>https://join2964.github.io/</id>
+  
+  <author>
+    <name>Hanair</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java学习记录</title>
+    <link href="https://join2964.github.io/2020/04/21/java/"/>
+    <id>https://join2964.github.io/2020/04/21/java/</id>
+    <published>2020-04-21T03:25:33.000Z</published>
+    <updated>2020-04-30T09:57:25.963Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;JVM加载class文件的原理机制&quot;&gt;&lt;a href=&quot;#JVM加载class文件的原理机制&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="java" scheme="https://join2964.github.io/tags/java/"/>
+    
+      <category term="学习" scheme="https://join2964.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="教程" scheme="https://join2964.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql启动失败</title>
+    <link href="https://join2964.github.io/2020/04/08/mysql/"/>
+    <id>https://join2964.github.io/2020/04/08/mysql/</id>
+    <published>2020-04-08T08:10:33.000Z</published>
+    <updated>2020-04-08T10:54:38.668Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/shinny195/article/details/82319218&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;mysql启动失败：mysql服务无法启动&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="redis" scheme="https://join2964.github.io/tags/redis/"/>
+    
+      <category term="java" scheme="https://join2964.github.io/tags/java/"/>
+    
+      <category term="学习" scheme="https://join2964.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="教程" scheme="https://join2964.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>springdata学习记录</title>
+    <link href="https://join2964.github.io/2020/03/23/springdatasum/"/>
+    <id>https://join2964.github.io/2020/03/23/springdatasum/</id>
+    <published>2020-03-23T14:38:22.000Z</published>
+    <updated>2020-03-25T10:45:13.407Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;springdata简介&quot;&gt;&lt;a href=&quot;#springdata简介&quot; class=&quot;headerlink&quot; title=&quot;springdata简介&quot;&gt;&lt;/a&gt;springdata简介&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;是Spring 的一个子项目。用于简化数据库访问，支持NoSQL 和 关系数据存储。其主要目标是使数据库的访问变得方便快捷。&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="java" scheme="https://join2964.github.io/tags/java/"/>
+    
+      <category term="学习" scheme="https://join2964.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="spring" scheme="https://join2964.github.io/tags/spring/"/>
+    
+      <category term="springdata" scheme="https://join2964.github.io/tags/springdata/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>redis学习记录</title>
+    <link href="https://join2964.github.io/2020/03/21/redissum/"/>
+    <id>https://join2964.github.io/2020/03/21/redissum/</id>
+    <published>2020-03-21T03:25:33.000Z</published>
+    <updated>2020-03-24T06:35:45.591Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;redis简介&quot;&gt;&lt;a href=&quot;#redis简介&quot; class=&quot;headerlink&quot; title=&quot;redis简介&quot;&gt;&lt;/a&gt;redis简介&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;Redis：开源、免费、高性能、K-V数据库、内存数据库、非关系型数据库，支持持久化、集群和事务&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="redis" scheme="https://join2964.github.io/tags/redis/"/>
+    
+      <category term="java" scheme="https://join2964.github.io/tags/java/"/>
+    
+      <category term="学习" scheme="https://join2964.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="教程" scheme="https://join2964.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+</feed>
