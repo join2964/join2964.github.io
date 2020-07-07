@@ -50,7 +50,7 @@
     <link href="https://join2964.github.io/2020/04/08/mysql/"/>
     <id>https://join2964.github.io/2020/04/08/mysql/</id>
     <published>2020-04-08T08:10:33.000Z</published>
-    <updated>2020-04-08T10:54:38.668Z</updated>
+    <updated>2020-07-07T05:47:09.348Z</updated>
     
     <summary type="html">
     
@@ -67,13 +67,11 @@
     
     
     
-      <category term="redis" scheme="https://join2964.github.io/tags/redis/"/>
-    
-      <category term="java" scheme="https://join2964.github.io/tags/java/"/>
-    
       <category term="学习" scheme="https://join2964.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="教程" scheme="https://join2964.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="mysql" scheme="https://join2964.github.io/tags/mysql/"/>
     
   </entry>
   
